@@ -1,0 +1,75 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const projects = [
+  {
+    title: "Design 18 Landing Page",
+    year: 2024,
+    description:
+      "This is a simple landing page created using React and Tailwind CSS. It has a workable navigation bar and a single selection accordian.",
+    url: "https://design18-landing-page.vercel.app/",
+  },
+  {
+    title: "Article Summarizer",
+    year: 2024,
+    description:
+      "Summarizes a web article for you. Tech stack used: Vite - React, Redux, Tailwind CSS",
+    url: "https://ai-summarizer-three-bay.vercel.app/",
+  },
+  {
+    title: "Social Profile Link: User",
+    year: 2024,
+    description:
+      "Simple UI project for social links. Used : HTML, CSS.",
+    url: "https://social-profile-gray.vercel.app/",
+  },
+  {
+    title: "Typemaster Keyboard Landing Page",
+    year: 2024,
+    description:
+      "This is a responsive landing page created using React and Tailwind CSS. The design is taken from @FrontendMentor",
+    url: "https://single-page-react-projects.vercel.app/",
+  },
+  {
+    title: "JavascriptUI (ongoing)",
+    year: 2025,
+    description:
+      "This GitHub repository contains a collection of basic, reusable UI components built using HTML, CSS, and JavaScript.",
+    url: "https://github.com/sheet848/JavascriptUI",
+  },
+];
+
+const title = "Books";
+const description = "My Books";
+---
+
+<Base title={title} description={description}>
+  <section>
+    <h1 class="mb-8 text-2xl font-medium tracking-tight">Books I read</h1>
+    <div class="space-y-6">
+      {
+        projects.map((project, index) => (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block group hover:opacity-80 transition-opacity duration-200">
+            <div class="flex flex-col">
+              <div class="w-full flex justify-between items-baseline">
+                <span class="text-black dark:text-white font-medium tracking-tight">
+                  {project.title}
+                </span>
+                <span class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+                  {project.year}
+                </span>
+              </div>
+              <p class="prose prose-neutral dark:prose-invert pt-3">
+                {project.description}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Base>
